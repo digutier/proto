@@ -128,7 +128,7 @@ func cargaNormal() { // Función para camión 3 (similar a las anteriores, sólo
 	}
 	prio1, err := c.PedirPrioritario(context.Background(), &message)
 	if err != nil {
-		log.Fatalf("Error when calling PedirRetail: %s", err)
+		log.Fatalf("Error when calling PedirPrioritario: %s", err)
 	}
 	if prio1.Id != nil {
 		prio2, err := c.PedirPrioritario(context.Background(), &message)
