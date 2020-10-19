@@ -34,16 +34,12 @@ message Entrega {
     string intentos = 4;
     string fechaentrega = 5;
 }
-// Esto es ya que al parecer cuando se pide seguimiento, se le da al cliente también el id del camión.
-message Camion {
-    string id = 1;
-}
 
 service CourierService {
     rpc Hello(Mensaje) returns (Mensaje) {}
     rpc CodigoPyme(OrdenPyme) returns (Codigo) {}
-    rpc PedirRetail(Camion) returns (Paquete) {} // Acá la idea es mandar el id del camión (camion 1 = "01", camion 2 = "02", camion 3 = "03") al pedir paquete.
-    rpc PedirPrioritario(Camion) returns (Paquete) {}
-    rpc PedirNormal(Camion) returns (Paquete) {}
+    rpc PedirRetail(Mensaje) returns (Paquete) {}
+    rpc PedirPrioritario(Mensaje) returns (Paquete) {}
+    rpc PedirNormal(Mensaje) returns (Paquete) {}
     rpc ResultadoEntrega(Entrega) returns (Mensaje) {} // No estoy seguro aun del mensaje.
 }
