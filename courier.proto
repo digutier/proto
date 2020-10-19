@@ -24,7 +24,8 @@ message Paquete {
     string tipo = 3;
     int64 valor = 4;
     string tienda = 5;
-    string destino = 6   
+    string estado = 6;
+    string destino = 7;  
 }
 
 message Entrega {
