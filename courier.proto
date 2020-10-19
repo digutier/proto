@@ -19,9 +19,27 @@ message Codigo {
 }
 // Definir el paquete
 message Paquete {
-    
+    string id = 1;
+    string seguimiento = 2;
+    string tipo = 3;
+    int64 valor = 4;
+    string tienda = 5;
+    string destino = 6   
 }
+
+message Entrega {
+    string id = 1;
+    int64 dignipesos = 2; // Es el dinero que se obtuvo o perdió en el proceso
+    string estado = 3; // Puede ser "Recibido" o "No Recibido"
+    string intentos = 4;
+    string fechaentrega = 5;
+}
+
 service CourierService {
     rpc Hello(Mensaje) returns (Mensaje) {}
     rpc CodigoPyme(OrdenPyme) returns (Codigo) {}
+    rpc PedirRetail(Mensaje) returns (Paquete) {}
+    rpc PedirPrioritario(Mensaje) returns (Paquete) {}
+    rpc PedirNormal(Mensaje) returns (Paquete) {}
+    rpc ResultadoEntrega(Entrega) returns (Mensaje) {} // No estoy seguro aun no de los mensajes.
 }
